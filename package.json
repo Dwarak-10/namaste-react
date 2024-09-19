@@ -1,0 +1,11 @@
+{
+  "name": "namaste-react",
+  "version": "1.0.0",
+  "description": "I'm in a learning mode",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Dwarakesh",
+  "license": "ISC"
+}
