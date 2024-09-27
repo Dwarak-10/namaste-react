@@ -6,9 +6,9 @@ const RestaurantCard = (props) => {
   const { cloudinaryImageId, name, cuisines, avgRating, sla, costForTwo } =
     resData;
   return (
-    <div className="m-4 p-4 border bg-gray-200 rounded-lg hover:bg-gray-300">
+    <div className="m-4 p-4 border bg-gray-200 rounded-lg hover:bg-gray-300 w-60">
       <img
-        className="h-40  rounded-lg"
+        className="h-40 w-60 rounded-lg"
         alt="res-logo"
         src={CDN_URL + cloudinaryImageId}
       />
@@ -19,6 +19,21 @@ const RestaurantCard = (props) => {
       <h4>{sla.deliveryTime} minutes</h4>
     </div>
   );
+};
+
+// Higher order component ==>it basically a function and it takes the component as the input and returns a new component as the output with some modification of the input component
+
+export const withVegRestaurantCard = (RestaurantCard) => {
+  return (props) => {
+    return (
+      <div>
+        <label className="absolute m-2 p-2 bg-black text-white rounded-lg">
+          Veg
+        </label>
+        <RestaurantCard {...props} />
+      </div>
+    );
+  };
 };
 
 export default RestaurantCard;

@@ -1,13 +1,16 @@
-import RestaurantCard from "./RestaurantCard";
-import { useState, useEffect } from "react";
+import RestaurantCard, { withVegRestaurantCard } from "./RestaurantCard";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [listOfRestaurant, setListOfRestaurant] = useState([]);
   const [listOfAllRestaurant, setListOfAllRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
+
+  const VegRestaurants = withVegRestaurantCard(RestaurantCard);
 
   useEffect(() => {
     fetchData();
@@ -26,10 +29,9 @@ const Body = () => {
     setListOfRestaurant(restaurants);
     setListOfAllRestaurant(restaurants);
   };
-
   const onlineStatus = useOnlineStatus();
   if (!onlineStatus) return <h1>It seems like you are offline</h1>;
-
+  const { loggedInUser, setUserName } = useContext(UserContext);
   // Conditional Rendering
   return listOfRestaurant.length === 0 ? (
     <Shimmer />
@@ -39,8 +41,9 @@ const Body = () => {
         <div className="search m-4 p-4">
           <input
             type="text"
-            className="border border-solid border-black"
+            className="border border-solid border-black p-2"
             value={searchText}
+            placeholder="Name of the Restaurant"
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
@@ -83,12 +86,24 @@ const Body = () => {
             Show All Restaurant
           </button>
         </div>
+        <div className="search m-4 p-4">
+          <label>User Name : </label>
+          <input
+            className="border border-solid border-black p-2"
+            value={loggedInUser}
+            onChange={(e) => setUserName(e.target.value)}
+          />
+        </div>
       </div>
       <div className="flex flex-wrap">
         {listOfAllRestaurant.map((restaurant) => {
           return (
             <Link key={restaurant?.id} to={"/restaurants/" + restaurant?.id}>
-              <RestaurantCard resData={restaurant} />
+              {restaurant?.veg ? (
+                <VegRestaurants resData={restaurant} />
+              ) : (
+                <RestaurantCard resData={restaurant} />
+              )}
             </Link>
           );
         })}
