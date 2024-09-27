@@ -35,17 +35,19 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="filter">
-        <div className="search">
+      <div className="filter flex items-center">
+        <div className="search m-4 p-4">
           <input
             type="text"
-            className="search-btn"
+            className="border border-solid border-black"
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
           />
+
           <button
+            className="px-4 py-2 bg-green-100 m-4 rounded-lg"
             onClick={() => {
               const filteredRestaurant = listOfRestaurant.filter((data) =>
                 data.name.toLowerCase().includes(searchText.toLowerCase())
@@ -56,27 +58,33 @@ const Body = () => {
             Search
           </button>
         </div>
-        <button
-          className="filter-btn"
-          onClick={() => {
-            const filteredList = listOfRestaurant.filter(
-              (res) => res.avgRating > 4.5
-            );
-            setListOfAllRestaurant(filteredList);
-          }}
-        >
-          Top Rated Restaurant
-        </button>
-        <button
-          className="filter-btn"
-          onClick={() => {
-            setListOfAllRestaurant(listOfRestaurant);
-          }}
-        >
-          Show All Restaurant
-        </button>
+        <div className="search m-4 p-4">
+          {" "}
+          <button
+            className="px-4 py-2 bg-gray-100 m-4 rounded-lg"
+            onClick={() => {
+              const filteredList = listOfRestaurant.filter(
+                (res) => res.avgRating > 4.5
+              );
+              setListOfAllRestaurant(filteredList);
+            }}
+          >
+            Top Rated Restaurant
+          </button>
+        </div>
+
+        <div className="search m-4 p-4">
+          <button
+            className="px-4 py-2 bg-blue-100 m-4 rounded-lg"
+            onClick={() => {
+              setListOfAllRestaurant(listOfRestaurant);
+            }}
+          >
+            Show All Restaurant
+          </button>
+        </div>
       </div>
-      <div className="res-container">
+      <div className="flex flex-wrap">
         {listOfAllRestaurant.map((restaurant) => {
           return (
             <Link key={restaurant?.id} to={"/restaurants/" + restaurant?.id}>
