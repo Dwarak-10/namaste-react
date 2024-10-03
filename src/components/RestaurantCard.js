@@ -3,10 +3,14 @@ import { CDN_URL } from "../utils/constants";
 const RestaurantCard = (props) => {
   // console.log(props);
   const { resData } = props;
+  // console.log(resData);
   const { cloudinaryImageId, name, cuisines, avgRating, sla, costForTwo } =
     resData;
   return (
-    <div className="m-4 p-4 border bg-gray-200 rounded-lg hover:bg-gray-300 w-60">
+    <div
+      data-testid="resCard"
+      className="m-4 p-4 border bg-gray-200 rounded-lg hover:bg-gray-300 w-60"
+    >
       <img
         className="h-40 w-60 rounded-lg"
         alt="res-logo"
@@ -26,7 +30,7 @@ const RestaurantCard = (props) => {
 export const withVegRestaurantCard = (RestaurantCard) => {
   return (props) => {
     return (
-      <div>
+      <div data-testid="resCardVeg">
         <label className="absolute m-2 p-2 bg-black text-white rounded-lg">
           Veg
         </label>

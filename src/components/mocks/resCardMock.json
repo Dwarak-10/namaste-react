@@ -1,0 +1,72 @@
+{
+  "id": "256828",
+  "name": "Pizza Hut",
+  "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2024/7/17/09b33e6e-4b4f-4104-af29-6611a752df1d_256828.jpg",
+  "locality": "Karur Byepass Road",
+  "areaName": "Thillai Nagar",
+  "costForTwo": "₹400 for two",
+  "cuisines": ["Pizzas"],
+  "avgRating": 4.2,
+  "parentId": "721",
+  "avgRatingString": "4.2",
+  "totalRatingsString": "6.5K+",
+  "sla": {
+    "deliveryTime": 30,
+    "lastMileTravel": 2.7,
+    "serviceability": "SERVICEABLE",
+    "slaString": "25-30 mins",
+    "lastMileTravelString": "2.7 km",
+    "iconType": "ICON_TYPE_EMPTY"
+  },
+  "availability": {
+    "nextCloseTime": "2024-10-04 00:00:00",
+    "opened": true
+  },
+  "badges": {
+    "imageBadges": [
+      {
+        "imageId": "Rxawards/_CATEGORY-Pizza.png",
+        "description": "Delivery!"
+      }
+    ]
+  },
+  "isOpen": true,
+  "type": "F",
+  "badgesV2": {
+    "entityBadges": {
+      "imageBased": {
+        "badgeObject": [
+          {
+            "attributes": {
+              "description": "Delivery!",
+              "imageId": "Rxawards/_CATEGORY-Pizza.png"
+            }
+          }
+        ]
+      },
+      "textBased": {},
+      "textExtendedBadges": {}
+    }
+  },
+  "aggregatedDiscountInfoV3": {
+    "header": "50% OFF",
+    "subHeader": "UPTO ₹90"
+  },
+  "differentiatedUi": {
+    "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+    "differentiatedUiMediaDetails": {
+      "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+      "lottie": {},
+      "video": {}
+    }
+  },
+  "reviewsSummary": {},
+  "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+  "restaurantOfferPresentationInfo": {},
+  "externalRatings": {
+    "aggregatedRating": {
+      "rating": "--"
+    }
+  },
+  "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+}
